@@ -23,6 +23,7 @@ function App() {
     const load = setInterval(()=>{
       nextLoad();
     },2000);
+    // code will run in unmounting cycle - to prevent creation of multiple intervals
     return()=>clearInterval(load);
   },[index])
  
@@ -37,7 +38,7 @@ function App() {
       <div>
         { <img src={urls.small_screen[index]} alt="img1" className='block md:hidden w-[100vw] h-[100vh]'/> }
       </div>
-      
+
       <div className='flex justify-between -mt-80'>
         {
           <img src={leftArrow} alt="img2" className='w-12 h-11 opacity-70 cursor-pointer' onClick={prevLoad}/>
